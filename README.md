@@ -1,6 +1,6 @@
 ### Description ###
 
-`jekyll-cmd-line` is a Python script that makes it easier to create posts and drafts for a [Jekyll-based](http://github.com/mojombo/jekyll) site, particularly when you maintain multiple sites.
+`jekyll-cmd-line` is a Python script that makes it easier to create posts and drafts for a [Jekyll-powered](http://github.com/mojombo/jekyll) site, particularly when you maintain multiple sites.
 
 ### Requirements ###
 
@@ -26,11 +26,15 @@ Each site in the `sites` list has the following attributes:
 * `layout`: The layout that should be specified in the [YAML Front Matter](http://wiki.github.com/mojombo/jekyll/yaml-front-matter) for new posts and drafts in this site. (optional, defaults to 'none')
 * `extension`: The file extension to use when creating post and draft files. (optional)
 
-For a full example, see sample.jekyll.
+For a full example, see [sample.jekyll](http://github.com/talison/jekyll-cmd-line/blob/master/sample.jekyll).
 
 ### Usage ###
 
-These examples assume you have a `.jekyll` file in your `HOME` directory with contents of sample.jekyll.
+These examples assume you have a `.jekyll` file in your `HOME` directory with contents of [sample.jekyll](http://github.com/talison/jekyll-cmd-line/blob/master/sample.jekyll).
+
+__Print usage__
+
+    jekyll-cmd-line --help
 
 __Create a new draft in your default site__
 
@@ -48,7 +52,9 @@ __Create a draft, pass in a different config__
 
 __Create a post from an existing draft__
 
-When you create a new post in a given site, `jekyll-cmd-line` will first check to see if a matching draft exists. If so, you'll be prompted if want to convert the existing draft to a post.
+When you create a new post in a given site, `jekyll-cmd-line` will first check to see if a matching draft exists. The match is based on filename patterns.
+
+If a match is found, you'll be prompted if want to convert the existing draft to a post. For example:
 
     jekyll-cmd-line -s journal -p "deep"
 
@@ -60,9 +66,9 @@ This command will find the "Deep Thoughts" draft and prompt:
 
     Draft number (or ENTER for new post):
 
-At this point, you can choose to convert draft 1 to a post by entering 1 and hitting ENTER. This will move `deep-thoughts.markdown` from the _drafts directory to the _posts directory and rename it with today's date.
+At this point, you can choose to convert draft 1 to a post by entering 1 and hitting ENTER. This will move `deep-thoughts.markdown` from the drafts directory to the posts directory and rename it with today's date.
 
-If you didn't intend to convert a draft to a post, just hit ENTER and a new post will be created.
+If a matching draft was found, but you just want to create a new post, hit ENTER. The draft will stay put and a new post is created.
 
 __Create a post__
 
