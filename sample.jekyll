@@ -1,0 +1,11 @@
+default_site: blog
+editor: emacs
+sites:
+  - name: blog
+    location: ~/Dropbox/projects/blog
+    layout: post
+    extension: .markdown
+  - name: journal
+    location: ~/Dropbox/projects/journal
+    layout: post
+    extension: .markdown
