@@ -94,7 +94,7 @@ def create_file_name(title, is_draft=False):
     Non-alphanumeric characters are replaced by a '-' to create the
     file name.
     """
-    clean_title = re.sub(r"\W", "-", title).lower() + site.get('extension','')
+    clean_title = re.sub(r"\W+", "-", title).lower() + site.get('extension','')
 
     if is_draft:
         return clean_title
